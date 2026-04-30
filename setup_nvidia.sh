@@ -1,10 +1,11 @@
 # NVIDIA driver setup script for Fedora
+# The Quadro P2000 of my Lenovo P52 laptop is as of Fedora 44 LEGACY
+# So I need to install  the Driver Version 580xx for it to work properly. The akmod-nvidia package will automatically install the correct version of the driver for your GPU, and it will also handle kernel updates and rebuilds.
 #!/bin/bash
 
-sudo dnf update -y # and reboot if you are not on the latest kernel
-sudo dnf install -y akmod-nvidia  # rhel/centos users can use kmod-nvidia instead
-sudo dnf install -y xorg-x11-drv-nvidia-cuda #optional for cuda/nvdec/nvenc support
-
+sdnf update -y
+sudo dnf install xorg-x11-drv-nvidia-580xx akmod-nvidia-580xx
+sudo dnf install xorg-x11-drv-nvidia-580xx-cuda 
 sudo dnf mark user akmod-nvidia
 
 sudo dnf install -y vulkan
