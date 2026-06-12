@@ -34,7 +34,7 @@ sudo dnf install -y vivaldi-stable
 
 # --- Essential CLI / GUI tools ---
 sudo dnf install -y \
-  git rclone tldr mpv neovim cmus tmux alacritty vim zsh stow yt-dlp \
+  git rclone tldr mpv neovim cmus tmux alacritty vim zsh stow \
   vlc unison gnome-tweaks pass btop gh fastfetch mc
 
 # --- Steam ---
@@ -75,3 +75,11 @@ ibus restart 2>/dev/null || ibus-daemon -drx
 # Register input sources for the current user (overrides existing list!)
 gsettings set org.gnome.desktop.input-sources sources \
   "[('xkb','de+nodeadkeys'),('xkb','us'),('ibus','libpinyin'),('ibus','mozc-jp')]"
+
+# install yt-dlp
+sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+sudo chmod +x /usr/local/bin/yt-dlp
+
+
+# install mpvacious
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ajatt-Tools/mpvacious/HEAD/scripts/install.sh)"
